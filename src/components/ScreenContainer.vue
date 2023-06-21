@@ -141,8 +141,8 @@
 
 <style scoped>
   .screen-container {
-    max-width: 1400px;
-    min-width: 950px;
+    max-width: max-content;
+    min-width: 1200px; 
     background: #adaeaf;
   }
 </style>
