@@ -9,7 +9,6 @@
       v-if="atualizar"
       v-show="sessaoDisponivel(filme.horarios)"
     >
- 
       <TimeSession
         v-for="horario in filme.horarios"
         :key="horario"
@@ -38,7 +37,7 @@
         horaAtualizada: new Date(),
         allSession: [],
         formatSession: [],
-        atualizar: true
+        atualizar: true,
       };
     },
     methods: {
@@ -80,6 +79,11 @@
               if (mapMovies.has(chave)) {
                 const filmeExistente = mapMovies.get(chave);
                 filmeExistente.horarios.push(filme.hour.replace("h", ":"));
+                filmeExistente.horarios.sort((a, b) => {
+                  const horaA = parseInt(a.split(":")[0]);
+                  const horaB = parseInt(b.split(":")[0]);
+                  return horaA - horaB;
+                });
               } else {
                 const novoFilme = {
                   name: filme.name,
@@ -128,10 +132,9 @@
     watch: {},
     mounted() {
       this.get();
-      setInterval(() => { 
-      this.atualizar = Math.random();
+      setInterval(() => {
+        this.atualizar = Math.random();
       }, 60000);
-    
     },
   };
 </script>
