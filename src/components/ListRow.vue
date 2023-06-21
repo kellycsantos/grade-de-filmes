@@ -62,7 +62,7 @@
     font-size: 1.3rem;
     background: #212325;
     color: white;
-    width: 320px;
+    min-width: 320px;
     padding-inline: 20px;
     justify-content: start !important;
    
@@ -75,7 +75,7 @@
   }
 
   .icon-class img {
-    width: 100%;
+    width: 50px;
     filter: drop-shadow(2px 4px 2px rgb(0, 0, 0));
   }
 
